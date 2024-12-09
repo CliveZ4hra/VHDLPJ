@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Mon Dec  9 09:56:20 2024
+# Process ID: 2644
+# Current directory: C:/Users/clive/COMBACC/COMBACC.runs/impl_1
+# Command line: vivado.exe -log slowrunninglights.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source slowrunninglights.tcl -notrace
+# Log file: C:/Users/clive/COMBACC/COMBACC.runs/impl_1/slowrunninglights.vdi
+# Journal file: C:/Users/clive/COMBACC/COMBACC.runs/impl_1\vivado.jou
+# Running On        :Femboy_Finder
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :22631
+# Processor Detail  :12th Gen Intel(R) Core(TM) i5-1235U
+# CPU Frequency     :2496 MHz
+# CPU Physical cores:10
+# CPU Logical cores :12
+# Host memory       :16850 MB
+# Swap memory       :1073 MB
+# Total Virtual     :17923 MB
+# Available Virtual :7738 MB
+#-----------------------------------------------------------
+source slowrunninglights.tcl -notrace
