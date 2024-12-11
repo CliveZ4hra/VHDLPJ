@@ -1,68 +1,68 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-entity slowrunninglights is
-    Port (
-        CLK100MHZ :  in  STD_LOGIC;
-        RST :  in  STD_LOGIC;
-        AN : out  STD_LOGIC_VECTOR (7 downto 0);
-        CA,CB,CC,CD,CE,CF,CG, DP: out STD_logic;
-        ACL_CSN, ACL_SCLK, ACL_MOSI : out STD_LOGIC;
-        SW : in std_logic_vector (15 downto 0);
-        ACL_MISO : in STD_LOGIC
-        );
-end slowrunninglights;
+ENTITY slowrunninglights IS
+    PORT (
+        CLK100MHZ : IN STD_LOGIC;
+        RST : IN STD_LOGIC;
+        AN : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
+        CA, CB, CC, CD, CE, CF, CG, DP : OUT STD_LOGIC;
+        ACL_CSN, ACL_SCLK, ACL_MOSI : OUT STD_LOGIC;
+        SW : IN STD_LOGIC_VECTOR (15 DOWNTO 0);
+        ACL_MISO : IN STD_LOGIC
+    );
+END slowrunninglights;
 
-architecture slowrunninglights_arch of slowrunninglights is
-    component runninglights is
-        Port (
-            CLK :  in  STD_LOGIC;
-            RST :  in  STD_LOGIC;
-            Hund,Ten,ITS: in STD_LOGIC_VECTOR (3 downto 0);
-            AN : out  STD_LOGIC_VECTOR (7 downto 0);
-            CA,CB,CC,CD,CE,CF,CG, DP: out STD_logic);
-    end component;
-    component BCD is
-    Port (
-        CLK     : in  STD_LOGIC;
-        RST     : in  STD_LOGIC;
-        HUN_OUT : out STD_LOGIC_VECTOR(3 downto 0);
-        TEN_OUT : out STD_LOGIC_VECTOR(3 downto 0);
-        NIT_OUT : out STD_LOGIC_VECTOR(3 downto 0);
-        bin : in STD_LOGIC_VECTOR(7 downto 0));
-    end component;
-            
-    component divider is
-        Port (
-            CLK_in :  in  STD_LOGIC;
-            RST :     in  STD_LOGIC;
-            CLK_out : out  STD_LOGIC
-            );
-    end component;
-    
-    component accel_spi
-        port ( 
-        clk,reset: in std_logic; -- generic i/o
-        
-         CS: out std_logic;
-         SCK: out std_logic; -- spi i/o
-         MOSI: out std_logic;
-         MISO: in std_logic;
-         
-         switch_arr: in std_logic_vector(15 downto 0);
-        accel_output_data: out std_logic_vector(7 downto 0) -- to be forwarded to clive for outputs
+ARCHITECTURE slowrunninglights_arch OF slowrunninglights IS
+    COMPONENT runninglights IS
+        PORT (
+            CLK : IN STD_LOGIC;
+            RST : IN STD_LOGIC;
+            Hund, Ten, ITS : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
+            AN : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
+            CA, CB, CC, CD, CE, CF, CG, DP : OUT STD_LOGIC);
+    END COMPONENT;
+    COMPONENT BCD IS
+        PORT (
+            CLK : IN STD_LOGIC;
+            RST : IN STD_LOGIC;
+            HUN_OUT : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+            TEN_OUT : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+            NIT_OUT : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+            bin : IN STD_LOGIC_VECTOR(7 DOWNTO 0));
+    END COMPONENT;
+
+    COMPONENT divider IS
+        PORT (
+            CLK_in : IN STD_LOGIC;
+            RST : IN STD_LOGIC;
+            CLK_out : OUT STD_LOGIC
         );
-    end component;
-    
-    signal slow_clk : std_logic;
-    signal hund, ten, nit: std_logic_vector(3 downto 0);
-    signal test:  STD_LOGIC_VECTOR(7 downto 0);
-begin
-    
+    END COMPONENT;
+
+    COMPONENT accel_spi
+        PORT (
+            clk, reset : IN STD_LOGIC; -- generic i/o
+
+            CS : OUT STD_LOGIC;
+            SCK : OUT STD_LOGIC; -- spi i/o
+            MOSI : OUT STD_LOGIC;
+            MISO : IN STD_LOGIC;
+
+            switch_arr : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+            accel_output_data : OUT STD_LOGIC_VECTOR(7 DOWNTO 0) -- to be forwarded to clive for outputs
+        );
+    END COMPONENT;
+
+    SIGNAL slow_clk : STD_LOGIC;
+    SIGNAL hund, ten, nit : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL test : STD_LOGIC_VECTOR(7 DOWNTO 0);
+BEGIN
+
     runninglights_1 : runninglights
-        port map(
+    PORT MAP(
         CLK => slow_clk,
         RST => RST,
         Hund => hund,
@@ -77,28 +77,29 @@ begin
         CF => CF,
         CG => CG,
         DP => DP
-        );
-        
+    );
+
     BCD_1 : BCD
-    port map(
+    PORT MAP(
         bin => test,
         RST => RST,
         CLK => slow_clk,
         HUN_OUT => hund,
         TEN_OUT => ten,
         NIT_OUT => nit
-        
+
     );
 
     divider_1 : divider
-        port map(
-            CLK_in => CLK100MHZ,
-            RST => RST,
-            CLK_out => slow_clk
-            );
-            
+    PORT MAP(
+        CLK_in => CLK100MHZ,
+        RST => RST,
+        CLK_out => slow_clk
+    );
+
     ACC_1 : accel_spi
-        port map(clk => CLK100MHZ,
+    PORT MAP(
+        clk => CLK100MHZ,
         reset => RST,
         miso => ACL_MISO,
         switch_arr => SW,
@@ -106,5 +107,5 @@ begin
         CS => ACL_CSN,
         SCK => ACL_SCLK,
         MOSI => ACL_MOSI
-        );
-end slowrunninglights_arch;
+    );
+END slowrunninglights_arch;

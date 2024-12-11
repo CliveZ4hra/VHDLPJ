@@ -1,43 +1,41 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-entity divider is
-    Port (
-        CLK_in :  in  STD_LOGIC;
-        RST :     in  STD_LOGIC;
-        CLK_out : out  STD_LOGIC
-        );
-end divider;
+ENTITY divider IS
+    PORT (
+        CLK_in : IN STD_LOGIC;
+        RST : IN STD_LOGIC;
+        CLK_out : OUT STD_LOGIC
+    );
+END divider;
 
-architecture Behavioral of divider is
-begin
-    process(CLK_in, RST)
-        variable count: integer;
-        variable count2: integer;
-        variable countout: std_logic_vector(7 downto 0);
-    begin
-        if RST = '1' then
+ARCHITECTURE Behavioral OF divider IS
+BEGIN
+    PROCESS (CLK_in, RST)
+        VARIABLE count : INTEGER;
+        VARIABLE count2 : INTEGER;
+        VARIABLE countout : STD_LOGIC_VECTOR(7 DOWNTO 0);
+    BEGIN
+        IF RST = '1' THEN
             count := 0;
             count2 := 0;
             CLK_out <= '0';
             countout := "00000000";
-           
-        elsif rising_edge(CLK_in) then
-            if count >= 0 and count < 50000 then
+
+        ELSIF rising_edge(CLK_in) THEN
+            IF count >= 0 AND count < 50000 THEN
                 CLK_out <= '1';
-            
-            elsif count >= 50000 and count < 100000 then
+
+            ELSIF count >= 50000 AND count < 100000 THEN
                 CLK_out <= '0';
-            elsif count = 100000 then
+            ELSIF count = 100000 THEN
                 count := 0;
                 count2 := count2 + 1;
-            
-            end if;
-            
 
+            END IF;
             count := count + 1;
-        end if;
-    end process;
-end Behavioral;
+        END IF;
+    END PROCESS;
+END Behavioral;
