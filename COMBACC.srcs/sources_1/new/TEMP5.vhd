@@ -14,7 +14,7 @@ ENTITY accel_spi IS
     MISO : IN STD_LOGIC;
 
     accel_output_data : OUT STD_LOGIC_VECTOR(7 DOWNTO 0); -- to be forwarded to clive for outputs
-    switch_arr : IN STD_LOGIC_VECTOR(15 DOWNTO 0)
+    switch_arr : IN STD_LOGIC_VECTOR(15 DOWNTO 0):= x"0000"
 
   );
 END accel_spi;
@@ -27,7 +27,7 @@ ARCHITECTURE behavioral OF accel_spi IS
 
   SIGNAL output_flag : STD_LOGIC := '0'; -- serialiser
 
-  TYPE sigstate IS (command, address, recieve); -- fsm for SPI output
+  TYPE sigstate IS (command, address, recieve,waits); -- fsm for SPI output
   SIGNAL spistate : sigstate;
   SIGNAL spicount : INTEGER := 1;
 
@@ -88,7 +88,7 @@ BEGIN
             ELSIF (switch_arr(2) = '1') THEN
               output_bits := x"0A";
             ELSE
-              output_bits := x"08";
+              output_bits := x"0A";
 
             END IF;
           END IF;

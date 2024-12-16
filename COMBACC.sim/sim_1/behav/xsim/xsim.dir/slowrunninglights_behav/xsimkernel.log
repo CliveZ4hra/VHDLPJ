@@ -1,7 +1,4 @@
-Running: xsim.dir/slowrunninglights_behav/xsimk.exe -simmode gui -wdb slowrunninglights_behav.wdb -simrunnum 0 -socket 51013
+Running: xsim.dir/slowrunninglights_behav/xsimk -simmode gui -wdb slowrunninglights_behav.wdb -simrunnum 0 -socket 56943
 Design successfully loaded
-Design Loading Memory Usage: 9128 KB (Peak: 9128 KB)
-Design Loading CPU Usage: 0 ms
-Simulation completed
-Simulation Memory Usage: 9624 KB (Peak: 9624 KB)
-Simulation CPU Usage: 0 ms
+Design Loading Memory Usage: 180100 KB (Peak: 180220 KB)
+Design Loading CPU Usage: 720 ms
