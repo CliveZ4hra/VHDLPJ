@@ -45,25 +45,26 @@ BEGIN
       clkcount <= clkcount + 1;
       IF (clkcount = 50) THEN
         divCLK <= NOT divCLK;
-
+        sck <= divCLK;
         clkcount <= 1;
 
       END IF;
     END IF;
   END PROCESS;
-  PROCESS (clk, reset) -- SPI logic
+  PROCESS (divClk, reset) -- SPI logic
 
     VARIABLE output_bits : STD_LOGIC_VECTOR(7 DOWNTO 0);
-    VARIABLE temp : STD_LOGIC_VECTOR (15 DOWNTO 0);
+    VARIABLE temp : STD_LOGIC_VECTOR (7 DOWNTO 0);
   BEGIN
     IF (reset = '1') THEN
       spistate <= command;
       mosi <= '0';
 
-    ELSIF (rising_edge(clk)) THEN
+    ELSIF (rising_edge(divClk)) THEN
       CASE spistate IS
 
         WHEN command =>
+        --accel_output_data <= x"AA";
           IF (spicount = 1) THEN
             cs <= '0';
             output_bits := x"0B";
@@ -79,6 +80,7 @@ BEGIN
             spicount <= spicount + 1;
           END IF;
         WHEN address =>
+        --accel_output_data <= x"AA";
           IF (spicount = 1) THEN
 
             IF (switch_arr(0) = '1') THEN
@@ -105,8 +107,8 @@ BEGIN
           END IF;
         WHEN recieve =>
 
-          temp(7) := MISO;
-          temp := STD_LOGIC_VECTOR(shift_right(unsigned(temp), 1));
+          temp(0) := MISO;
+          temp := STD_LOGIC_VECTOR(shift_left(unsigned(temp), 1));
           spicount <= spicount + 1;
 
           IF (spicount = 8) THEN
@@ -114,9 +116,10 @@ BEGIN
             spicount <= 0;
             spistate <= command;
             accel_output_data <= temp(7 DOWNTO 0);
+            
           END IF;
         WHEN OTHERS =>
-
+        accel_output_data <= x"AA";
       END CASE;
     END IF;
   END PROCESS;

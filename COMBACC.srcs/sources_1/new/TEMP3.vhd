@@ -257,12 +257,6 @@ begin
             -- Shift binary to BCD using Double-Dabble algorithm
             for i in 7 downto 0 loop
                 -- Shift left all BCD digits and binary
-                bcd(11 downto 1) := bcd(10 downto 0);
-                bcd(0) := binary(7);
-                binary(7 downto 1) := binary(6 downto 0);
-                binary(0) := '0';
-
-                -- Add 3 to BCD digits greater than or equal to 5
                 if bcd(3 downto 0) >= "0101" then
                     bcd(3 downto 0) := bcd(3 downto 0) + "0011";
                 end if;
@@ -274,6 +268,14 @@ begin
                 if bcd(11 downto 8) >= "0101" then
                     bcd(11 downto 8) := bcd(11 downto 8) + "0011";
                 end if;
+                
+                bcd(11 downto 1) := bcd(10 downto 0);
+                bcd(0) := binary(7);
+                binary(7 downto 1) := binary(6 downto 0);
+                binary(0) := '0';
+
+                -- Add 3 to BCD digits greater than or equal to 5
+                
             end loop;
             HUN_OUT <= bcd(11 downto 8);
             TEN_OUT <= bcd(7 downto 4);

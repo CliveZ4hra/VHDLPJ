@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
-| Date         : Mon Dec  9 09:57:09 2024
-| Host         : Femboy_Finder running 64-bit major release  (build 9200)
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Mon Dec 16 09:25:52 2024
+| Host         : daniellattitude3340 running 64-bit Manjaro Linux
 | Command      : report_control_sets -verbose -file slowrunninglights_control_sets_placed.rpt
 | Design       : slowrunninglights
 | Device       : xc7a100t
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    10 |
-|    Minimum number of control sets                        |    10 |
+| Total control sets                                       |    12 |
+|    Minimum number of control sets                        |    12 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    30 |
+| Unused register locations in slices containing registers |    44 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,10 +39,10 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    10 |
-| >= 0 to < 4        |     3 |
-| >= 4 to < 6        |     0 |
-| >= 6 to < 8        |     3 |
+| Total control sets |    12 |
+| >= 0 to < 4        |     4 |
+| >= 4 to < 6        |     2 |
+| >= 6 to < 8        |     2 |
 | >= 8 to < 10       |     1 |
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     0 |
@@ -58,31 +58,33 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               1 |            1 |
-| No           | No                    | Yes                    |              44 |           12 |
+| No           | No                    | No                     |               4 |            2 |
+| No           | No                    | Yes                    |              77 |           20 |
 | No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |              45 |           16 |
+| Yes          | No                    | No                     |              70 |           27 |
 | Yes          | No                    | Yes                    |               1 |            1 |
-| Yes          | Yes                   | No                     |              31 |            8 |
+| Yes          | Yes                   | No                     |               4 |            2 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------------+----------------------------+----------------------------+------------------+----------------+--------------+
-|     Clock Signal     |        Enable Signal       |      Set/Reset Signal      | Slice Load Count | Bel Load Count | Bels / Slice |
-+----------------------+----------------------------+----------------------------+------------------+----------------+--------------+
-|  CLK100MHZ_IBUF_BUFG |                            |                            |                1 |              1 |         1.00 |
-|  CLK100MHZ_IBUF_BUFG | ACC_1/CS0                  |                            |                1 |              1 |         1.00 |
-|  CLK100MHZ_IBUF_BUFG | ACC_1/MOSI_i_1_n_0         | RST_IBUF                   |                1 |              1 |         1.00 |
-|  CLK100MHZ_IBUF_BUFG | ACC_1/temp0                |                            |                1 |              6 |         6.00 |
-|  CLK100MHZ_IBUF_BUFG | ACC_1/accel_output_data0   |                            |                3 |              7 |         2.33 |
-|  CLK100MHZ_IBUF_BUFG | ACC_1/output_bits0         |                            |                2 |              7 |         3.50 |
-|  CLK_out_BUFG        |                            | RST_IBUF                   |                2 |              8 |         4.00 |
-|  CLK_out_BUFG        | runninglights_1/E[0]       |                            |                9 |             24 |         2.67 |
-|  CLK100MHZ_IBUF_BUFG | ACC_1/spicount[31]_i_2_n_0 | ACC_1/spicount[31]_i_1_n_0 |                8 |             31 |         3.88 |
-|  CLK100MHZ_IBUF_BUFG |                            | RST_IBUF                   |               10 |             36 |         3.60 |
-+----------------------+----------------------------+----------------------------+------------------+----------------+--------------+
++-------------------------------------+--------------------------+------------------------------+------------------+----------------+--------------+
+|             Clock Signal            |       Enable Signal      |       Set/Reset Signal       | Slice Load Count | Bel Load Count | Bels / Slice |
++-------------------------------------+--------------------------+------------------------------+------------------+----------------+--------------+
+|  FSM_onehot_spistate_reg[2]_i_2_n_0 | ACC_1/MOSI_i_1_n_0       | RST_IBUF                     |                1 |              1 |         1.00 |
+|  FSM_onehot_spistate_reg[2]_i_2_n_0 | ACC_1/CS0                |                              |                1 |              1 |         1.00 |
+|  CLK100MHZ_IBUF_BUFG                | ACC_1/SCK0               |                              |                1 |              1 |         1.00 |
+|  FSM_onehot_spistate_reg[2]_i_2_n_0 |                          | RST_IBUF                     |                1 |              3 |         3.00 |
+|  FSM_onehot_spistate_reg[2]_i_2_n_0 |                          |                              |                2 |              4 |         2.00 |
+|  FSM_onehot_spistate_reg[2]_i_2_n_0 | ACC_1/output_bits0       | ACC_1/output_bits[7]_i_1_n_0 |                2 |              4 |         2.00 |
+|  FSM_onehot_spistate_reg[2]_i_2_n_0 | ACC_1/temp0              |                              |                1 |              6 |         6.00 |
+|  FSM_onehot_spistate_reg[2]_i_2_n_0 | ACC_1/accel_output_data0 |                              |                3 |              7 |         2.33 |
+|  CLK_out_BUFG                       |                          | RST_IBUF                     |                1 |              8 |         8.00 |
+|  CLK_out_BUFG                       | runninglights_1/E[0]     |                              |               12 |             24 |         2.00 |
+|  FSM_onehot_spistate_reg[2]_i_2_n_0 | ACC_1/spicount0          |                              |                9 |             31 |         3.44 |
+|  CLK100MHZ_IBUF_BUFG                |                          | RST_IBUF                     |               18 |             66 |         3.67 |
++-------------------------------------+--------------------------+------------------------------+------------------+----------------+--------------+
 
 

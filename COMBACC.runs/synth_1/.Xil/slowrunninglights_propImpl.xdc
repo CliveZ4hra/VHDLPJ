@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:C:/Users/clive/COMBACC/COMBACC.srcs/constrs_1/new/constuff.xdc rfile:../../../COMBACC.srcs/constrs_1/new/constuff.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:/home/daniel/git_repos/VHDLPJ/COMBACC.srcs/constrs_1/new/constuff.xdc rfile:../../../COMBACC.srcs/constrs_1/new/constuff.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:3 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN E3    IOSTANDARD LVCMOS33 } [get_ports { CLK100MHZ }]; #IO_L12P_T1_MRCC_35 Sch=clk100mhz
 set_property src_info {type:XDC file:1 line:8 export:INPUT save:INPUT read:READ} [current_design]
@@ -65,6 +65,8 @@ set_property src_info {type:XDC file:1 line:66 export:INPUT save:INPUT read:READ
 set_property -dict { PACKAGE_PIN K2    IOSTANDARD LVCMOS33 } [get_ports { AN[6] }]; #IO_L23P_T3_35 Sch=an[6]
 set_property src_info {type:XDC file:1 line:67 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN U13   IOSTANDARD LVCMOS33 } [get_ports { AN[7] }]; #IO_L23N_T3_A02_D18_14 Sch=an[7]
+set_property src_info {type:XDC file:1 line:73 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN N17   IOSTANDARD LVCMOS33 } [get_ports { RST }]; #IO_L9P_T1_DQS_14 Sch=btnc
 set_property src_info {type:XDC file:1 line:158 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN E15   IOSTANDARD LVCMOS33 } [get_ports { ACL_MISO }]; #IO_L11P_T1_SRCC_15 Sch=acl_miso
 set_property src_info {type:XDC file:1 line:159 export:INPUT save:INPUT read:READ} [current_design]

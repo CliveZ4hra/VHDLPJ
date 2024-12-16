@@ -5,13 +5,17 @@
 // Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 //
 
+echo "This script was generated under a different operating system."
+echo "Please update the PATH variable below, before executing this script"
+exit
+
 var WshShell = new ActiveXObject( "WScript.Shell" );
 var ProcEnv = WshShell.Environment( "Process" );
 var PathVal = ProcEnv("PATH");
 if ( PathVal.length == 0 ) {
-  PathVal = "C:/Xilinx/Vivado/2024.1/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2024.1/ids_lite/ISE/lib/nt64;C:/Xilinx/Vivado/2024.1/bin;";
+  PathVal = "/mnt/24e10873-2673-45cb-9c25-1e82b2a26751/Vivado_Files/Vitis/2024.2/bin:/mnt/24e10873-2673-45cb-9c25-1e82b2a26751/Vivado_Files/Vivado/2024.2/ids_lite/ISE/bin/lin64;/mnt/24e10873-2673-45cb-9c25-1e82b2a26751/Vivado_Files/Vivado/2024.2/bin;";
 } else {
-  PathVal = "C:/Xilinx/Vivado/2024.1/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2024.1/ids_lite/ISE/lib/nt64;C:/Xilinx/Vivado/2024.1/bin;" + PathVal;
+  PathVal = "/mnt/24e10873-2673-45cb-9c25-1e82b2a26751/Vivado_Files/Vitis/2024.2/bin:/mnt/24e10873-2673-45cb-9c25-1e82b2a26751/Vivado_Files/Vivado/2024.2/ids_lite/ISE/bin/lin64;/mnt/24e10873-2673-45cb-9c25-1e82b2a26751/Vivado_Files/Vivado/2024.2/bin;" + PathVal;
 }
 
 ProcEnv("PATH") = PathVal;

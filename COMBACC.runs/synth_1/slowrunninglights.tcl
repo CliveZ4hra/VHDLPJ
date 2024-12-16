@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/clive/COMBACC/COMBACC.runs/synth_1/slowrunninglights.tcl"
+  variable script "/home/daniel/git_repos/VHDLPJ/COMBACC.runs/synth_1/slowrunninglights.tcl"
   variable category "vivado_synth"
 }
 
@@ -64,20 +64,20 @@ create_project -in_memory -part xc7a100tcsg324-2
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/clive/COMBACC/COMBACC.cache/wt [current_project]
-set_property parent.project_path C:/Users/clive/COMBACC/COMBACC.xpr [current_project]
+set_property webtalk.parent_dir /home/daniel/git_repos/VHDLPJ/COMBACC.cache/wt [current_project]
+set_property parent.project_path /home/daniel/git_repos/VHDLPJ/COMBACC.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property ip_output_repo c:/Users/clive/COMBACC/COMBACC.cache/ip [current_project]
+set_property ip_output_repo /home/daniel/git_repos/VHDLPJ/COMBACC.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
-  C:/Users/clive/COMBACC/COMBACC.srcs/sources_1/new/TEMP2.vhd
-  C:/Users/clive/COMBACC/COMBACC.srcs/sources_1/new/TEMP3.vhd
-  C:/Users/clive/COMBACC/COMBACC.srcs/sources_1/new/TEMP4.vhd
-  C:/Users/clive/COMBACC/COMBACC.srcs/sources_1/new/TEMP5.vhd
-  C:/Users/clive/COMBACC/COMBACC.srcs/sources_1/new/TEMP1.vhd
+  /home/daniel/git_repos/VHDLPJ/COMBACC.srcs/sources_1/new/TEMP2.vhd
+  /home/daniel/git_repos/VHDLPJ/COMBACC.srcs/sources_1/new/TEMP3.vhd
+  /home/daniel/git_repos/VHDLPJ/COMBACC.srcs/sources_1/new/TEMP4.vhd
+  /home/daniel/git_repos/VHDLPJ/COMBACC.srcs/sources_1/new/TEMP5.vhd
+  /home/daniel/git_repos/VHDLPJ/COMBACC.srcs/sources_1/new/TEMP1.vhd
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -88,12 +88,12 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/clive/COMBACC/COMBACC.srcs/constrs_1/new/constuff.xdc
-set_property used_in_implementation false [get_files C:/Users/clive/COMBACC/COMBACC.srcs/constrs_1/new/constuff.xdc]
+read_xdc /home/daniel/git_repos/VHDLPJ/COMBACC.srcs/constrs_1/new/constuff.xdc
+set_property used_in_implementation false [get_files /home/daniel/git_repos/VHDLPJ/COMBACC.srcs/constrs_1/new/constuff.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental C:/Users/clive/COMBACC/COMBACC.srcs/utils_1/imports/synth_1/slowrunninglights.dcp
+read_checkpoint -auto_incremental -incremental /home/daniel/git_repos/VHDLPJ/COMBACC.srcs/utils_1/imports/synth_1/slowrunninglights.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
