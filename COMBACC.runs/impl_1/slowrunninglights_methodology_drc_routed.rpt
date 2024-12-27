@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date         : Mon Dec 16 10:20:13 2024
+| Date         : Fri Dec 27 14:59:00 2024
 | Host         : daniellattitude3340 running 64-bit Manjaro Linux
 | Command      : report_methodology -file slowrunninglights_methodology_drc_routed.rpt -pb slowrunninglights_methodology_drc_routed.pb -rpx slowrunninglights_methodology_drc_routed.rpx
 | Design       : slowrunninglights
@@ -95,37 +95,37 @@ Related violations: <none>
 
 TIMING-17#13 Critical Warning
 Non-clocked sequential cell  
-The clock pin ACC_1/output_bits_reg[1]/C is not reached by a timing clock
+The clock pin ACC_1/output_bits_sig_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#14 Critical Warning
 Non-clocked sequential cell  
-The clock pin ACC_1/output_bits_reg[2]/C is not reached by a timing clock
+The clock pin ACC_1/output_bits_sig_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#15 Critical Warning
 Non-clocked sequential cell  
-The clock pin ACC_1/output_bits_reg[3]/C is not reached by a timing clock
+The clock pin ACC_1/output_bits_sig_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#16 Critical Warning
 Non-clocked sequential cell  
-The clock pin ACC_1/output_bits_reg[4]/C is not reached by a timing clock
+The clock pin ACC_1/output_bits_sig_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#17 Critical Warning
 Non-clocked sequential cell  
-The clock pin ACC_1/output_bits_reg[5]/C is not reached by a timing clock
+The clock pin ACC_1/output_bits_sig_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#18 Critical Warning
 Non-clocked sequential cell  
-The clock pin ACC_1/output_bits_reg[6]/C is not reached by a timing clock
+The clock pin ACC_1/output_bits_sig_reg[6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#19 Critical Warning
 Non-clocked sequential cell  
-The clock pin ACC_1/output_bits_reg[7]/C is not reached by a timing clock
+The clock pin ACC_1/output_bits_sig_reg[7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#20 Critical Warning

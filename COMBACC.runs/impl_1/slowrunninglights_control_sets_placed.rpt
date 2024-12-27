@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date         : Mon Dec 16 10:19:55 2024
+| Date         : Fri Dec 27 14:58:41 2024
 | Host         : daniellattitude3340 running 64-bit Manjaro Linux
 | Command      : report_control_sets -verbose -file slowrunninglights_control_sets_placed.rpt
 | Design       : slowrunninglights
@@ -58,10 +58,10 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               4 |            2 |
-| No           | No                    | Yes                    |              77 |           21 |
+| No           | No                    | No                     |               4 |            1 |
+| No           | No                    | Yes                    |              77 |           22 |
 | No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |              39 |           12 |
+| Yes          | No                    | No                     |              39 |           16 |
 | Yes          | No                    | Yes                    |               1 |            1 |
 | Yes          | Yes                   | No                     |              35 |            9 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
@@ -70,21 +70,21 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------------+------------------------------+------------------------------+------------------+----------------+--------------+
-|     Clock Signal     |         Enable Signal        |       Set/Reset Signal       | Slice Load Count | Bel Load Count | Bels / Slice |
-+----------------------+------------------------------+------------------------------+------------------+----------------+--------------+
-|  divClk              | ACC_1/CS0                    |                              |                1 |              1 |         1.00 |
-|  divClk              | ACC_1/MOSI_i_1_n_0           | RST_IBUF                     |                1 |              1 |         1.00 |
-|  CLK100MHZ_IBUF_BUFG | ACC_1/SCK0                   |                              |                1 |              1 |         1.00 |
-|  divClk              |                              | RST_IBUF                     |                1 |              3 |         3.00 |
-|  divClk              |                              |                              |                2 |              4 |         2.00 |
-|  divClk              | ACC_1/output_bits[7]_i_2_n_0 | ACC_1/output_bits[7]_i_1_n_0 |                1 |              4 |         4.00 |
-|  divClk              | ACC_1/temp0                  |                              |                2 |              6 |         3.00 |
-|  divClk              | ACC_1/accel_output_data0     |                              |                1 |              7 |         7.00 |
-|  CLK_out_BUFG        |                              | RST_IBUF                     |                2 |              8 |         4.00 |
-|  CLK_out_BUFG        | runninglights_1/E[0]         |                              |                7 |             24 |         3.43 |
-|  divClk              | ACC_1/spicount[31]_i_2_n_0   | ACC_1/spicount[31]_i_1_n_0   |                8 |             31 |         3.88 |
-|  CLK100MHZ_IBUF_BUFG |                              | RST_IBUF                     |               18 |             66 |         3.67 |
-+----------------------+------------------------------+------------------------------+------------------+----------------+--------------+
++----------------------+----------------------------------+----------------------------------+------------------+----------------+--------------+
+|     Clock Signal     |           Enable Signal          |         Set/Reset Signal         | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------------+----------------------------------+----------------------------------+------------------+----------------+--------------+
+|  divClk              | ACC_1/MOSI_i_1_n_0               | RST_IBUF                         |                1 |              1 |         1.00 |
+|  divClk              | ACC_1/CS0                        |                                  |                1 |              1 |         1.00 |
+|  CLK100MHZ_IBUF_BUFG | ACC_1/SCK0                       |                                  |                1 |              1 |         1.00 |
+|  divClk              |                                  | RST_IBUF                         |                2 |              3 |         1.50 |
+|  divClk              |                                  |                                  |                1 |              4 |         4.00 |
+|  divClk              | ACC_1/output_bits_sig[7]_i_2_n_0 | ACC_1/output_bits_sig[7]_i_1_n_0 |                1 |              4 |         4.00 |
+|  divClk              | ACC_1/temp0                      |                                  |                2 |              6 |         3.00 |
+|  divClk              | ACC_1/accel_output_data0         |                                  |                3 |              7 |         2.33 |
+|  CLK_out_BUFG        |                                  | RST_IBUF                         |                2 |              8 |         4.00 |
+|  CLK_out_BUFG        | runninglights_1/E[0]             |                                  |                9 |             24 |         2.67 |
+|  divClk              | ACC_1/spicount0                  | ACC_1/spicount[31]_i_1_n_0       |                8 |             31 |         3.88 |
+|  CLK100MHZ_IBUF_BUFG |                                  | RST_IBUF                         |               18 |             66 |         3.67 |
++----------------------+----------------------------------+----------------------------------+------------------+----------------+--------------+
 
 

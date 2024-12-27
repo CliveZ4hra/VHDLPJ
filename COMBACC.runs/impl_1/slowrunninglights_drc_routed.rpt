@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date         : Mon Dec 16 10:20:12 2024
+| Date         : Fri Dec 27 14:58:59 2024
 | Host         : daniellattitude3340 running 64-bit Manjaro Linux
 | Command      : report_drc -file slowrunninglights_drc_routed.rpt -pb slowrunninglights_drc_routed.pb -rpx slowrunninglights_drc_routed.rpx
 | Design       : slowrunninglights

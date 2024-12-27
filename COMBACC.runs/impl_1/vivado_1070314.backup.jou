@@ -3,22 +3,22 @@
 # SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Fri Dec 27 14:57:46 2024
-# Process ID         : 1095317
-# Current directory  : /home/daniel/git_repos/VHDLPJ/COMBACC.runs/synth_1
-# Command line       : vivado -log slowrunninglights.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source slowrunninglights.tcl
-# Log file           : /home/daniel/git_repos/VHDLPJ/COMBACC.runs/synth_1/slowrunninglights.vds
-# Journal file       : /home/daniel/git_repos/VHDLPJ/COMBACC.runs/synth_1/vivado.jou
+# Start of session at: Fri Dec 27 14:50:48 2024
+# Process ID         : 1070314
+# Current directory  : /home/daniel/git_repos/VHDLPJ/COMBACC.runs/impl_1
+# Command line       : vivado -log slowrunninglights.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source slowrunninglights.tcl -notrace
+# Log file           : /home/daniel/git_repos/VHDLPJ/COMBACC.runs/impl_1/slowrunninglights.vdi
+# Journal file       : /home/daniel/git_repos/VHDLPJ/COMBACC.runs/impl_1/vivado.jou
 # Running On         : daniellattitude3340
 # Platform           : ManjaroLinux
 # Operating System   : Manjaro Linux
 # Processor Detail   : 13th Gen Intel(R) Core(TM) i5-1345U
-# CPU Frequency      : 400.215 MHz
+# CPU Frequency      : 3754.539 MHz
 # CPU Physical cores : 10
 # CPU Logical cores  : 12
 # Host memory        : 16438 MB
 # Swap memory        : 9448 MB
 # Total Virtual      : 25887 MB
-# Available Virtual  : 12738 MB
+# Available Virtual  : 14223 MB
 #-----------------------------------------------------------
 source slowrunninglights.tcl -notrace

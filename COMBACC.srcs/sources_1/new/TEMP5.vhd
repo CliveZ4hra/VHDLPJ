@@ -34,7 +34,7 @@ ARCHITECTURE behavioral OF accel_spi IS
   SIGNAL spicount : INTEGER := 1;
 
   SIGNAL inputbuffer : STD_LOGIC_VECTOR (15 DOWNTO 0);
-
+  SIGNAL output_bits_sig : STD_LOGIC_VECTOR(7 DOWNTO 0);
 BEGIN
 
   PROCESS (clk, reset) -- clock divider
@@ -54,7 +54,7 @@ BEGIN
     END IF;
   END PROCESS;
   PROCESS (divClk, reset) -- SPI logic
-
+    
     VARIABLE output_bits : STD_LOGIC_VECTOR(7 DOWNTO 0);
     VARIABLE temp : STD_LOGIC_VECTOR (7 DOWNTO 0);
   BEGIN
@@ -62,10 +62,11 @@ BEGIN
       spistate <= command;
       mosi <= '0';
 
-    ELSIF (rising_edge(divClk)) THEN
+    ELSIF (rising_edge(divCLK)) THEN
       CASE spistate IS
 
         WHEN command =>
+        output_bits := output_bits_sig;
         --accel_output_data <= x"AA";
           IF (spicount = 1) THEN
             cs <= '0';
@@ -74,14 +75,17 @@ BEGIN
 
           MOSI <= output_bits(7);
           output_bits := STD_LOGIC_VECTOR(shift_left(unsigned(output_bits), 1));
-          IF (spicount = 8)
+          IF (spicount >= 8)
             THEN
             spistate <= address;
             spicount <= 1;
           ELSE
             spicount <= spicount + 1;
           END IF;
+          output_bits_sig <= output_bits;
+          
         WHEN address =>
+        output_bits := output_bits_sig;
         --accel_output_data <= x"AA";
           IF (spicount = 1) THEN
 
@@ -107,6 +111,7 @@ BEGIN
           ELSE
             spicount <= spicount + 1;
           END IF;
+          output_bits_sig <= output_bits;
         WHEN recieve =>
 
           temp(0) := MISO;
