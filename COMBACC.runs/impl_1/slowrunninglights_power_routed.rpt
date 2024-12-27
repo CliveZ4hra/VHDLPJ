@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date             : Mon Dec 16 09:26:09 2024
+| Date             : Mon Dec 16 10:20:13 2024
 | Host             : daniellattitude3340 running 64-bit Manjaro Linux
 | Command          : report_power -file slowrunninglights_power_routed.rpt -pb slowrunninglights_power_summary_routed.pb -rpx slowrunninglights_power_routed.rpx
 | Design           : slowrunninglights
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.106        |
+| Total On-Chip Power (W)  | 0.107        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.009        |
+| Dynamic (W)              | 0.010        |
 | Device Static (W)        | 0.097        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 84.5         |
@@ -52,17 +52,17 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      439 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      172 |     63400 |            0.27 |
-|   CARRY4       |    <0.001 |       36 |     15850 |            0.23 |
+| Clocks         |     0.002 |        3 |       --- |             --- |
+| Slice Logic    |    <0.001 |      458 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      187 |     63400 |            0.29 |
+|   CARRY4       |    <0.001 |       40 |     15850 |            0.25 |
 |   Register     |    <0.001 |      156 |    126800 |            0.12 |
 |   BUFG         |    <0.001 |        2 |        32 |            6.25 |
 |   Others       |     0.000 |        8 |       --- |             --- |
-| Signals        |    <0.001 |      334 |       --- |             --- |
-| I/O            |     0.006 |       24 |       210 |           11.43 |
+| Signals        |    <0.001 |      289 |       --- |             --- |
+| I/O            |     0.007 |       24 |       210 |           11.43 |
 | Static Power   |     0.097 |          |           |                 |
-| Total          |     0.106 |          |           |                 |
+| Total          |     0.107 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.017 |       0.002 |      0.015 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.018 |       0.003 |      0.015 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.018 |       0.000 |      0.018 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.006 |       0.002 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -141,8 +141,9 @@ Table of Contents
 +-------------------+-----------+
 | Name              | Power (W) |
 +-------------------+-----------+
-| slowrunninglights |     0.009 |
+| slowrunninglights |     0.010 |
 |   ACC_1           |     0.001 |
+|   divider_1       |     0.001 |
 +-------------------+-----------+
 
 

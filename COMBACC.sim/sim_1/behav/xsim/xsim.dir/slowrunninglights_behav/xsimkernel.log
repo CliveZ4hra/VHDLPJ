@@ -2,3 +2,6 @@ Running: xsim.dir/slowrunninglights_behav/xsimk -simmode gui -wdb slowrunninglig
 Design successfully loaded
 Design Loading Memory Usage: 180100 KB (Peak: 180220 KB)
 Design Loading CPU Usage: 710 ms
+Simulation completed
+Simulation Memory Usage: 261836 KB (Peak: 319368 KB)
+Simulation CPU Usage: 710 ms

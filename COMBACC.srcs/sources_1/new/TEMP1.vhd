@@ -11,7 +11,9 @@ ENTITY slowrunninglights IS
         CA, CB, CC, CD, CE, CF, CG, DP : OUT STD_LOGIC;
         ACL_CSN, ACL_SCLK, ACL_MOSI : OUT STD_LOGIC;
         SW : IN STD_LOGIC_VECTOR (15 DOWNTO 0);
+        
         ACL_MISO : IN STD_LOGIC
+        
     );
 END slowrunninglights;
 
@@ -60,7 +62,6 @@ ARCHITECTURE slowrunninglights_arch OF slowrunninglights IS
     SIGNAL hund, ten, nit : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL test : STD_LOGIC_VECTOR(7 DOWNTO 0);
 BEGIN
-
     runninglights_1 : runninglights
     PORT MAP(
         CLK => slow_clk,
@@ -107,5 +108,8 @@ BEGIN
         CS => ACL_CSN,
         SCK => ACL_SCLK,
         MOSI => ACL_MOSI
+        
+        
+        
     );
 END slowrunninglights_arch;

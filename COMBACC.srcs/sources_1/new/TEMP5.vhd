@@ -12,7 +12,9 @@ ENTITY accel_spi IS
     SCK : OUT STD_LOGIC; -- spi i/o
     MOSI : OUT STD_LOGIC;
     MISO : IN STD_LOGIC;
-
+    
+    
+    
     accel_output_data : OUT STD_LOGIC_VECTOR(7 DOWNTO 0); -- to be forwarded to clive for outputs
     switch_arr : IN STD_LOGIC_VECTOR(15 DOWNTO 0):= x"0000"
 
@@ -43,7 +45,7 @@ BEGIN
       divClk <= '0';
     ELSIF (clk'event AND clk = '1') THEN
       clkcount <= clkcount + 1;
-      IF (clkcount = 50) THEN
+      IF (clkcount >= 95) THEN
         divCLK <= NOT divCLK;
         sck <= divCLK;
         clkcount <= 1;
