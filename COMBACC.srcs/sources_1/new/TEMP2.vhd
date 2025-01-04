@@ -9,6 +9,7 @@ entity runninglights is
         RST :  in  STD_LOGIC;
         Hund,Ten,ITS: in STD_LOGIC_VECTOR (3 downto 0);
         AN : out  STD_LOGIC_VECTOR (7 downto 0);
+        LED: out STD_LOGIC_VECTOR (15 downto 0);
         CA,CB,CC,CD,CE,CF,CG, DP: out STD_logic	 );
 end runninglights;
 
@@ -31,6 +32,161 @@ begin
             hundreds := Hund;
             tens := Ten;
             nits := ITS;
+            
+                        
+            -- >0
+            if nits > 0 then
+                LED(0) <= '1';
+            elsif tens > 0 then
+                LED(0) <= '1';
+            elsif hundreds > 0 then
+                LED(0) <= '1';
+            else
+                LED(0) <= '0';
+            end if;
+            
+            -- 15
+            if tens > 0 and nits > 4 then
+                LED(1) <= '1';
+            elsif tens > 1 then
+                LED(1) <= '1';
+            elsif hundreds > 0 then
+                LED(1) <= '1';
+            else
+                LED(1) <= '0';
+            end if;
+            
+            -- 30
+            if tens > 2 then
+                LED(2) <= '1';
+            elsif hundreds > 0 then
+                LED(2) <= '1';
+            else
+                LED(2) <= '0';
+            end if;
+            
+            -- 45
+            if tens > 3 and nits > 4 then
+                LED(3) <= '1';
+            elsif tens > 4 then
+                LED(3) <= '1';
+            elsif hundreds > 0 then
+                LED(3) <= '1';
+            else
+                LED(3) <= '0';
+            end if;
+            
+            
+            -- 60
+            if tens > 5 then
+                LED(4) <= '1';
+            elsif hundreds > 0 then
+                LED(4) <= '1';
+            else
+                LED(4) <= '0';
+            end if;
+            
+            -- 75
+            if tens > 6 and nits > 4 then
+                LED(5) <= '1';
+            elsif tens > 7 then
+                LED(5) <= '1';
+            elsif hundreds > 0 then
+                LED(5) <= '1';
+            else
+                LED(5) <= '0';
+            end if;
+            
+            -- 90
+            if tens > 8 then
+                LED(6) <= '1';
+            elsif hundreds > 0 then
+                LED(6) <= '1';
+            else
+                LED(6) <= '0';
+            end if;
+            
+            -- 105
+            if hundreds > 0 and nits > 4 then
+                LED(7) <= '1';
+            elsif hundreds > 0 and tens > 0 then
+                LED(7) <= '1';
+            else
+                LED(7) <= '0';
+            end if;
+            
+            
+            -- 120
+            if hundreds > 0 and tens > 1 then
+                LED(8) <= '1';
+            else
+                LED(8) <= '0';
+            end if;
+            
+            -- 135
+            if hundreds > 0 and tens > 2 and nits > 4 then
+                LED(9) <= '1';
+            elsif hundreds > 0 and tens > 3 then
+                LED(9) <= '1';
+            elsif hundreds > 1 then
+                LED(9) <= '1';
+            else
+                LED(9) <= '0';
+            end if;
+            
+            -- 150
+            if hundreds > 0 and tens > 4 then
+                LED(10) <= '1';
+            elsif hundreds > 1 then
+                LED(10) <= '1';
+            else
+                LED(10) <= '0';
+            end if;
+            
+            -- 165
+            if hundreds > 0 and tens > 5 and nits > 4 then
+                LED(11) <= '1';
+            elsif hundreds > 0 and tens > 6 then
+                LED(11) <= '1';
+            elsif hundreds > 1 then
+                LED(11) <= '1';
+            else
+                LED(11) <= '0';
+            end if;
+            
+            -- 180
+            if hundreds > 0 and tens > 7 then
+                LED(12) <= '1';
+            elsif hundreds > 1 then
+                LED(12) <= '1';
+            else
+                LED(12) <= '0';
+            end if;
+            
+            -- 195
+            if hundreds > 0 and tens > 8 and nits > 4 then
+                LED(13) <= '1';
+            elsif hundreds > 1 then
+                LED(13) <= '1';
+            else
+                LED(13) <= '0';
+            end if;
+            
+            -- 210
+            if hundreds > 1 and tens > 0 then
+                LED(14) <= '1';
+            else
+                LED(14) <= '0';
+            end if;
+            
+            -- 225
+            
+            if hundreds > 1 and tens >3 then
+                LED(15) <= '1';
+            else
+                LED(15) <= '0';
+            end if;
+            
            
             
             temp := temp(0) & temp(7 downto 1);
