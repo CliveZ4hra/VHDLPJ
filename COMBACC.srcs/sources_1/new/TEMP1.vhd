@@ -11,7 +11,7 @@ ENTITY slowrunninglights IS
         CA, CB, CC, CD, CE, CF, CG, DP : OUT STD_LOGIC;
         ACL_CSN, ACL_SCLK, ACL_MOSI : OUT STD_LOGIC;
         SW : IN STD_LOGIC_VECTOR (15 DOWNTO 0);
-        
+        LEDin : OUT std_logic_vector (15 downto 0);
         ACL_MISO : IN STD_LOGIC
         
     );
@@ -24,7 +24,8 @@ ARCHITECTURE slowrunninglights_arch OF slowrunninglights IS
             RST : IN STD_LOGIC;
             Hund, Ten, ITS : IN STD_LOGIC_VECTOR (3 DOWNTO 0);
             AN : OUT STD_LOGIC_VECTOR (7 DOWNTO 0);
-            CA, CB, CC, CD, CE, CF, CG, DP : OUT STD_LOGIC);
+            CA, CB, CC, CD, CE, CF, CG, DP : OUT STD_LOGIC;
+            LED: out STD_LOGIC_VECTOR (15 downto 0));
     END COMPONENT;
     COMPONENT BCD IS
         PORT (
@@ -64,6 +65,7 @@ ARCHITECTURE slowrunninglights_arch OF slowrunninglights IS
 BEGIN
     runninglights_1 : runninglights
     PORT MAP(
+        LED => LEDin,
         CLK => slow_clk,
         RST => RST,
         Hund => hund,

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-2" LaunchTime="1735307864" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/slowrunninglights.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-2" LaunchTime="1736175914" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/slowrunninglights.dcp">
+  <File Type="RDS-DCP" Name="slowrunninglights.dcp"/>
+  <File Type="RDS-RDS" Name="slowrunninglights.vds"/>
   <File Type="REPORTS-TCL" Name="slowrunninglights_reports.tcl"/>
+  <File Type="PA-TCL" Name="slowrunninglights.tcl"/>
   <File Type="RDS-UTIL" Name="slowrunninglights_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="slowrunninglights_utilization_synth.pb"/>
-  <File Type="PA-TCL" Name="slowrunninglights.tcl"/>
-  <File Type="RDS-RDS" Name="slowrunninglights.vds"/>
-  <File Type="RDS-DCP" Name="slowrunninglights.dcp"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/TEMP2.vhd">
