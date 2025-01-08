@@ -111,6 +111,8 @@ begin
                 LED(7) <= '1';
             elsif hundreds > 0 and tens > 0 then
                 LED(7) <= '1';
+            elsif hundreds > 1 then
+                LED(7) <= '1';
             else
                 LED(7) <= '0';
             end if;
@@ -119,6 +121,8 @@ begin
             -- 120
             if hundreds > 0 and tens > 1 then
                 LED(8) <= '1';
+            elsif hundreds > 1 then
+                LED(7) <= '1';
             else
                 LED(8) <= '0';
             end if;
