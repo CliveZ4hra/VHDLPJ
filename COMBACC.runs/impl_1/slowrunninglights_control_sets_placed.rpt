@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date         : Fri Dec 27 14:58:41 2024
+| Date         : Mon Jan  6 16:06:13 2025
 | Host         : daniellattitude3340 running 64-bit Manjaro Linux
 | Command      : report_control_sets -verbose -file slowrunninglights_control_sets_placed.rpt
 | Design       : slowrunninglights
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    12 |
-|    Minimum number of control sets                        |    12 |
+| Total control sets                                       |    25 |
+|    Minimum number of control sets                        |    25 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    44 |
+| Unused register locations in slices containing registers |   140 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,8 +39,8 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    12 |
-| >= 0 to < 4        |     4 |
+| Total control sets |    25 |
+| >= 0 to < 4        |    17 |
 | >= 4 to < 6        |     2 |
 | >= 6 to < 8        |     2 |
 | >= 8 to < 10       |     1 |
@@ -58,12 +58,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               4 |            1 |
-| No           | No                    | Yes                    |              77 |           22 |
+| No           | No                    | No                     |               4 |            2 |
+| No           | No                    | Yes                    |              77 |           21 |
 | No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |              39 |           16 |
+| Yes          | No                    | No                     |              42 |           17 |
 | Yes          | No                    | Yes                    |               1 |            1 |
-| Yes          | Yes                   | No                     |              35 |            9 |
+| Yes          | Yes                   | No                     |              48 |           22 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -73,16 +73,29 @@ Table of Contents
 +----------------------+----------------------------------+----------------------------------+------------------+----------------+--------------+
 |     Clock Signal     |           Enable Signal          |         Set/Reset Signal         | Slice Load Count | Bel Load Count | Bels / Slice |
 +----------------------+----------------------------------+----------------------------------+------------------+----------------+--------------+
+|  CLK_out_BUFG        | runninglights_1/p_0_in           | BCD_1/SS[12]                     |                1 |              1 |         1.00 |
+|  CLK_out_BUFG        | runninglights_1/p_0_in           | BCD_1/SS[10]                     |                1 |              1 |         1.00 |
+|  CLK_out_BUFG        | runninglights_1/p_0_in           | BCD_1/SS[8]                      |                1 |              1 |         1.00 |
+|  CLK_out_BUFG        | runninglights_1/p_0_in           | BCD_1/SS[7]                      |                1 |              1 |         1.00 |
+|  CLK_out_BUFG        | runninglights_1/p_0_in           | BCD_1/SS[11]                     |                1 |              1 |         1.00 |
+|  CLK_out_BUFG        | runninglights_1/p_0_in           | BCD_1/SS[6]                      |                1 |              1 |         1.00 |
+|  CLK_out_BUFG        | runninglights_1/p_0_in           | BCD_1/SS[0]                      |                1 |              1 |         1.00 |
+|  CLK_out_BUFG        | runninglights_1/p_0_in           | BCD_1/SS[1]                      |                1 |              1 |         1.00 |
+|  CLK_out_BUFG        | runninglights_1/p_0_in           | BCD_1/SS[2]                      |                1 |              1 |         1.00 |
+|  CLK_out_BUFG        | runninglights_1/p_0_in           | BCD_1/SS[3]                      |                1 |              1 |         1.00 |
+|  CLK_out_BUFG        | runninglights_1/p_0_in           | BCD_1/SS[9]                      |                1 |              1 |         1.00 |
+|  CLK_out_BUFG        | runninglights_1/p_0_in           | BCD_1/SS[5]                      |                1 |              1 |         1.00 |
+|  CLK_out_BUFG        | runninglights_1/p_0_in           | BCD_1/SS[4]                      |                1 |              1 |         1.00 |
+|  CLK100MHZ_IBUF_BUFG | ACC_1/SCK0                       |                                  |                1 |              1 |         1.00 |
 |  divClk              | ACC_1/MOSI_i_1_n_0               | RST_IBUF                         |                1 |              1 |         1.00 |
 |  divClk              | ACC_1/CS0                        |                                  |                1 |              1 |         1.00 |
-|  CLK100MHZ_IBUF_BUFG | ACC_1/SCK0                       |                                  |                1 |              1 |         1.00 |
-|  divClk              |                                  | RST_IBUF                         |                2 |              3 |         1.50 |
-|  divClk              |                                  |                                  |                1 |              4 |         4.00 |
+|  divClk              |                                  | RST_IBUF                         |                1 |              3 |         3.00 |
+|  divClk              |                                  |                                  |                2 |              4 |         2.00 |
 |  divClk              | ACC_1/output_bits_sig[7]_i_2_n_0 | ACC_1/output_bits_sig[7]_i_1_n_0 |                1 |              4 |         4.00 |
-|  divClk              | ACC_1/temp0                      |                                  |                2 |              6 |         3.00 |
-|  divClk              | ACC_1/accel_output_data0         |                                  |                3 |              7 |         2.33 |
+|  divClk              | ACC_1/temp0                      |                                  |                1 |              6 |         6.00 |
+|  divClk              | ACC_1/accel_output_data0         |                                  |                2 |              7 |         3.50 |
 |  CLK_out_BUFG        |                                  | RST_IBUF                         |                2 |              8 |         4.00 |
-|  CLK_out_BUFG        | runninglights_1/E[0]             |                                  |                9 |             24 |         2.67 |
+|  CLK_out_BUFG        | runninglights_1/p_0_in           |                                  |               12 |             27 |         2.25 |
 |  divClk              | ACC_1/spicount0                  | ACC_1/spicount[31]_i_1_n_0       |                8 |             31 |         3.88 |
 |  CLK100MHZ_IBUF_BUFG |                                  | RST_IBUF                         |               18 |             66 |         3.67 |
 +----------------------+----------------------------------+----------------------------------+------------------+----------------+--------------+
