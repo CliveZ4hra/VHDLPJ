@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version     : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date             : Mon Jan  6 16:06:31 2025
-| Host             : daniellattitude3340 running 64-bit Manjaro Linux
+| Tool Version     : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date             : Sat Feb 15 18:16:38 2025
+| Host             : Femboy_Finder running 64-bit major release  (build 9200)
 | Command          : report_power -file slowrunninglights_power_routed.rpt -pb slowrunninglights_power_summary_routed.pb -rpx slowrunninglights_power_routed.rpx
 | Design           : slowrunninglights
 | Device           : xc7a100tcsg324-2
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.126        |
+| Total On-Chip Power (W)  | 0.124        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.029        |
+| Dynamic (W)              | 0.027        |
 | Device Static (W)        | 0.097        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 84.4         |
@@ -52,17 +52,17 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.002 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      510 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      208 |     63400 |            0.33 |
+| Clocks         |     0.001 |        3 |       --- |             --- |
+| Slice Logic    |    <0.001 |      514 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      210 |     63400 |            0.33 |
 |   CARRY4       |    <0.001 |       44 |     15850 |            0.28 |
 |   Register     |    <0.001 |      172 |    126800 |            0.14 |
 |   BUFG         |    <0.001 |        2 |        32 |            6.25 |
 |   Others       |     0.000 |        8 |       --- |             --- |
-| Signals        |    <0.001 |      308 |       --- |             --- |
-| I/O            |     0.026 |       40 |       210 |           19.05 |
+| Signals        |    <0.001 |      301 |       --- |             --- |
+| I/O            |     0.024 |       40 |       210 |           19.05 |
 | Static Power   |     0.097 |          |           |                 |
-| Total          |     0.126 |          |           |                 |
+| Total          |     0.124 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -141,7 +141,7 @@ Table of Contents
 +-------------------+-----------+
 | Name              | Power (W) |
 +-------------------+-----------+
-| slowrunninglights |     0.029 |
+| slowrunninglights |     0.027 |
 |   ACC_1           |     0.001 |
 |   divider_1       |     0.001 |
 +-------------------+-----------+

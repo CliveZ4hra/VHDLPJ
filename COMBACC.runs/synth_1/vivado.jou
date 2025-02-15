@@ -1,24 +1,24 @@
 #-----------------------------------------------------------
 # Vivado v2024.2 (64-bit)
-# SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Mon Jan  6 16:05:16 2025
-# Process ID         : 405882
-# Current directory  : /home/daniel/git_repos/VHDLPJ/COMBACC.runs/synth_1
-# Command line       : vivado -log slowrunninglights.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source slowrunninglights.tcl
-# Log file           : /home/daniel/git_repos/VHDLPJ/COMBACC.runs/synth_1/slowrunninglights.vds
-# Journal file       : /home/daniel/git_repos/VHDLPJ/COMBACC.runs/synth_1/vivado.jou
-# Running On         : daniellattitude3340
-# Platform           : ManjaroLinux
-# Operating System   : Manjaro Linux
-# Processor Detail   : 13th Gen Intel(R) Core(TM) i5-1345U
-# CPU Frequency      : 476.437 MHz
+# Start of session at: Sat Feb 15 18:14:07 2025
+# Process ID         : 19716
+# Current directory  : C:/Users/clive/COMBACC/COMBACC.runs/synth_1
+# Command line       : vivado.exe -log slowrunninglights.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source slowrunninglights.tcl
+# Log file           : C:/Users/clive/COMBACC/COMBACC.runs/synth_1/slowrunninglights.vds
+# Journal file       : C:/Users/clive/COMBACC/COMBACC.runs/synth_1\vivado.jou
+# Running On         : Femboy_Finder
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 22631
+# Processor Detail   : 12th Gen Intel(R) Core(TM) i5-1235U
+# CPU Frequency      : 2496 MHz
 # CPU Physical cores : 10
 # CPU Logical cores  : 12
-# Host memory        : 16438 MB
-# Swap memory        : 9448 MB
-# Total Virtual      : 25887 MB
-# Available Virtual  : 11484 MB
+# Host memory        : 16850 MB
+# Swap memory        : 1073 MB
+# Total Virtual      : 17923 MB
+# Available Virtual  : 6666 MB
 #-----------------------------------------------------------
 source slowrunninglights.tcl -notrace
